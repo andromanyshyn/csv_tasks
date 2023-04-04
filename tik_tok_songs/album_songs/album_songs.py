@@ -1,7 +1,7 @@
 import csv
 
 with open(r'C:\Users\Andrew\csv_tasks\tik_tok_songs\TikTok_songs_2022.csv', 'r', encoding='utf-8') as file_read:
-    with open('album_count_songs.csv', 'w', encoding='utf-8') as file_write:
+    with open('album_songs.csv', 'w', encoding='utf-8') as file_write:
         d = {}
         reader = csv.DictReader(file_read)
         writer = csv.writer(file_write)
@@ -13,4 +13,4 @@ with open(r'C:\Users\Andrew\csv_tasks\tik_tok_songs\TikTok_songs_2022.csv', 'r',
         for album in albums:
             d[album] = [i['track_name'] for i in lst if album == i['album']]
         for k, v in d.items():
-            writer.writerow([k, len(v)])
+            writer.writerow([k, v])
